@@ -15,6 +15,7 @@
 		3481AA722C57EEC2005649A1 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3481AA712C57EEC2005649A1 /* HomeViewModel.swift */; };
 		3481AA742C57F01B005649A1 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3481AA732C57F01B005649A1 /* ErrorView.swift */; };
 		3481AA772C57F0F0005649A1 /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3481AA762C57F0F0005649A1 /* PreviewProvider.swift */; };
+		3481AA7D2C57F8F4005649A1 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3481AA7C2C57F8F4005649A1 /* DataService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		3481AA712C57EEC2005649A1 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		3481AA732C57F01B005649A1 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		3481AA762C57F0F0005649A1 /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
+		3481AA7C2C57F8F4005649A1 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,9 +63,8 @@
 			children = (
 				3481AA5E2C57EE40005649A1 /* ObservableLeftBitApp.swift */,
 				3481AA752C57F0DE005649A1 /* Extensions */,
-				3481AA6D2C57EE58005649A1 /* Model */,
-				3481AA702C57EE97005649A1 /* ViewModel */,
-				3481AA6C2C57EE4F005649A1 /* View */,
+				3481AA782C57F210005649A1 /* Services */,
+				3481AA792C57F21E005649A1 /* Core */,
 				3481AA622C57EE41005649A1 /* Assets.xcassets */,
 				3481AA642C57EE41005649A1 /* Preview Content */,
 			);
@@ -109,6 +110,24 @@
 				3481AA762C57F0F0005649A1 /* PreviewProvider.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3481AA782C57F210005649A1 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				3481AA7C2C57F8F4005649A1 /* DataService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		3481AA792C57F21E005649A1 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				3481AA6D2C57EE58005649A1 /* Model */,
+				3481AA702C57EE97005649A1 /* ViewModel */,
+				3481AA6C2C57EE4F005649A1 /* View */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,6 +201,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3481AA612C57EE40005649A1 /* BookList.swift in Sources */,
+				3481AA7D2C57F8F4005649A1 /* DataService.swift in Sources */,
 				3481AA772C57F0F0005649A1 /* PreviewProvider.swift in Sources */,
 				3481AA5F2C57EE40005649A1 /* ObservableLeftBitApp.swift in Sources */,
 				3481AA6F2C57EE73005649A1 /* Book.swift in Sources */,

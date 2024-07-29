@@ -1,0 +1,44 @@
+//
+//  ContentView.swift
+//  ObservableLeftBit
+//
+//  Created by Uri on 29/7/24.
+//
+
+import SwiftUI
+
+struct BookList: View {
+    
+    @ObservedObject var viewModel: HomeViewModel
+    
+    var body: some View {
+        Group {
+            if viewModel.isLoading {
+                ProgressView()
+            } else if let _ = viewModel.error {
+                ErrorView()
+            } else {
+                List(viewModel.books, id: \.id) { book in
+                    VStack {
+                        Text(book.title)
+                            .foregroundStyle(.primary)
+                        Text(book.releaseDate)
+                            .foregroundStyle(.secondary)
+                        Text("Test")
+                    }
+                }
+            }
+        }
+        .task {
+            await viewModel.getBooks()
+        }
+    }
+}
+
+#Preview {
+    BookList(viewModel: HomeViewModel())
+}
+
+
+
+

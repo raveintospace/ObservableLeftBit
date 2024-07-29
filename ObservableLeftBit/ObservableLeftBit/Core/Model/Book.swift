@@ -8,7 +8,7 @@
 import Foundation
 
 struct Book: Identifiable, Decodable {
-    let id: UUID
+    var id = UUID()
     let title: String
-    let author: String
+    let releaseDate: String
 }
