@@ -7,14 +7,29 @@
 
 import Foundation
 
+enum RemoteDataSourceError: Error {
+    case invalidURL
+}
+
 final class DataService {
     
-    func getData(url: URL) async throws -> Data {
-        do {
-            let (data, _) = try await URLSession.shared.data(from: url)
-            return data
-        } catch {
-            throw error
+    func fetch<T: Decodable>(type: T.Type, url: URL?) async throws -> T {
+        
+        // check if url exists
+        guard let url = url else {
+            throw RemoteDataSourceError.invalidURL
         }
+        
+        // obtain data & response from url
+        let (data, response) = try await URLSession.shared.data(from: url)
+        
+        // check if response returns 200
+        guard (response as? HTTPURLResponse)?.statusCode == 200 else {
+            throw URLError(.badServerResponse)
+        }
+        
+        // decode data into our model object
+        let result = try JSONDecoder().decode(T.self, from: data)
+        return result
     }
 }

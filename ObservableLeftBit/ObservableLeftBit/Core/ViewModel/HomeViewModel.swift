@@ -45,14 +45,17 @@ extension HomeViewModel {
     
     
     func getBooks() async {
+        self.isLoading = true
+        
         guard let url = URL(string: "https://potterapi-fedeperin.vercel.app/en/books") else { return }
         
         do {
-            let data = try await manager.getData(url: url)
-            let books = try JSONDecoder().decode([Book].self, from: data)
-            self.books = books
+            let receivedBooks = try await manager.fetch(type: [Book].self, url: url)
+            debugPrint(receivedBooks)
+            self.books = receivedBooks
         } catch {
             self.error = error
         }
+        self.isLoading = false
     }
 }

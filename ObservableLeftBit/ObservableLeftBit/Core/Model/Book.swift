@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct Book: Identifiable, Decodable {
-    var id = UUID()
+struct Book: Codable {
+    let index: Int
     let title: String
     let releaseDate: String
 }
