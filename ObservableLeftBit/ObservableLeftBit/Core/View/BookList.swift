@@ -18,13 +18,12 @@ struct BookList: View {
             } else if let _ = viewModel.error {
                 ErrorView()
             } else {
-                List(viewModel.books, id: \.id) { book in
-                    VStack {
+                List(viewModel.books, id: \.index) { book in
+                    VStack(alignment: .leading) {
                         Text(book.title)
                             .foregroundStyle(.primary)
                         Text(book.releaseDate)
                             .foregroundStyle(.secondary)
-                        Text("Test")
                     }
                 }
             }
